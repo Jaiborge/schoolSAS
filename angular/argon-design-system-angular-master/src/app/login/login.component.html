@@ -1,0 +1,172 @@
+
+  <main>
+  
+    
+    
+    <ng-container  *ngIf="(appState$ | async ) as appState" [ngSwitch]="appState.dataState"  >
+      <ng-container *ngSwitchCase="DataState.LOADING_STATE" > 
+    <section class="section section-shaped section-lg">
+      <div class="shape shape-style-1 bg-gradient-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    
+      <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-header bg-white pb-1">
+                <div class="text-muted text-center mb-1">
+                  <h5 class="title mb-5">ORDENES PENDIENTES DE PAGO</h5>
+                </div>
+               
+              </div>
+              
+  
+              <div class="card-body px-lg-5 py-lg-5">
+                <form #orderForm="ngForm" (ngSubmit)="retrieveOrders(orderForm)"  role="form">
+                  <div class="form-group" [ngClass]="{'focused':focus===true}">
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                      </div>
+                      <input class="form-control" ngModel placeholder="Numero de referencia" type="text" (focus)="focus=true" name="reference" (blur)="focus=false" required>
+                    </div>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary mt-4"   [disabled]="orderForm.invalid || (isLoading$ | async)">
+                      <span>  BUSCAR</span>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    </section>
+  </ng-container>
+    
+    <ng-container *ngSwitchCase="DataState.LOADED_STATE" >      
+    <section>
+      
+      <div class="wrapper">
+        
+        <section class="section tables-2 mb-5"><div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 mx-auto text-center">
+                <h2 class="title mb-5">ORDENES PENDIENTES DE COBRO</h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10 mx-auto">
+                <div>
+                  <div class="table-responsive mb-0">
+                    <table class="table table-pricing">
+                      
+                      <thead class="text-primary">
+                      <tr><th>
+                            <img class="background" src="https://app.creative-tim.com/argon_placeholder/ill/bg4-1.svg"></th>
+                          <th class="text-center">
+                            <h5 class="card-title">PERIODO</h5>
+                            <a class="btn btn-info btn-sm" href="javascript:void(0)">RANGO CUBIERTO</a><a href="javascript:void(0)"></a>
+                          </th>
+                          <th class="text-center">
+                            <h5 class="card-title">MONTO</h5>
+                            <a class="btn btn-info btn-sm" href="javascript:void(0)">CANTIDAD POR PAGAR</a><a href="javascript:void(0)"></a>
+                          </th>
+                          <th class="text-center">
+                            <h5 class="card-title">FECHA DE CREACION</h5>
+                            <a class="btn btn-info btn-sm" href="javascript:void(0)">Fecha de creacion</a><a href="javascript:void(0)"></a>
+                          </th>
+                          
+                        </tr>
+                        <tr class="bg-primary"><td class="text-white"><b>ID REFERENCIA</b></td>
+                          <td></td>
+                          <td></td>
+                          <td class="text-center">
+                            
+                            <div class="col-md-4">
+                              <button class="btn btn-warning btn-primary mb-3" (click)="open(classic,'' , modal_mini,123456)">
+                               PAGAR
+                              </button>
+                              <ng-template #classic let-c="close" let-d="dismiss">
+                               <form #payForm="ngForm" (ngSubmit)="processPayment(payForm)"  role="form">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h6 class="modal-title" id="modal-title-default">INGRESA LOS DATOS DE LA TARJETA</h6>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+                                      <span aria-hidden="true">×</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>                                            
+                                        <input class="form-control" ngModel placeholder="Numero de Tarjeta" type="text" (focus)="focus=true" name="card" (blur)="focus=false" required>
+                                    </p>
+                                    <p>                                            
+                                        <input class="form-control" ngModel placeholder="Fecha de Expiracion" type="text" (focus)="focus=false" name="expMonth" (blur)="focus=false"  maxlength="2" size="2" required>/
+                                        <input class="form-control" ngModel placeholder="Fecha de Expiracion" type="text" (focus)="focus=false" name="expYear" (blur)="focus=false" maxlength="2" size="2"  required>
+                                    </p>
+                                    <p>                                            
+                                        <input class="form-control" ngModel placeholder="CVV" type="text" (focus)="focus=false" name="cvv" (blur)="focus=false" required>
+                                    </p>
+                                  </div>
+                                  <div>
+  
+                                        <div class="text-center">
+                                          <button type="submit" class="btn btn-primary mt-4"   [disabled]="payForm.invalid || (isLoading$ | async)">
+                                            <span>  PROCESAR PAGO</span>
+                                          </button>
+
+                                          
+                                    </div>
+                                    
+                                  </div>
+                                </div>
+                               </form>
+                              </ng-template>
+                            </div>
+  
+  
+                          </td>
+                        </tr>
+                      </thead>
+                      
+                      <tbody  *ngFor= "let order of appState.appData.data.Orders; let i = index">
+                        
+                        <tr><td>{{order.reference}} <i class="ni ni-compass-04 ml-1"></i></td>
+                          <td class="text-center">{{order.period}}</td>
+                          <td class="text-center">{{order.amount | currency}}</td>
+                          <td class="text-center">{{order.creationDate | date}}</td>
+                        </tr>
+                        
+                       
+                      </tbody>
+                      </table></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+      </div>
+    
+  
+  
+  
+  
+    </section>
+  </ng-container>
+  </ng-container>
+  
+  
+  
+  </main>
+  

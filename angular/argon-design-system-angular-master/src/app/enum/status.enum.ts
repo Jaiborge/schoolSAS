@@ -1,0 +1,4 @@
+export enum Status{
+    PENDIENTE='PENDIENTE', PAGADO='PAGADO', ENPROCESO='ENPROCESO'
+    
+    }
