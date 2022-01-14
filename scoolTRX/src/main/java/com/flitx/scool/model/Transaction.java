@@ -12,80 +12,72 @@ import java.time.LocalDateTime;
 public class Transaction {
 
     private String id;
-    private String transactionId;
-    private String cardType;
-    private String bank;
-    private String authCode;
-    private String last4Digits;
-    private LocalDateTime transDate;
-    private String cardNature;
     private BigDecimal amount;
+    private String source;
+    private String description;
+    private String paymentMethod;
+    private String currency;
+    private String cvv;
+    private LocalDateTime transDate;
+    private String saveCard;
+    private Billing billing;
+
     private TransStatus status;
 
+    public String getId() {
+        return id;
+    }
 
-    public Transaction(String transactionId, String cardType, String bank, String authCode, String last4Digits, LocalDateTime transDate, String cardNature, BigDecimal amount, TransStatus status) {
-        this.transactionId = transactionId;
-        this.cardType = cardType;
-        this.bank = bank;
-        this.authCode = authCode;
-        this.last4Digits = last4Digits;
-        this.transDate = transDate;
-        this.cardNature = cardNature;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
         this.amount = amount;
-        this.status = status;
     }
 
-    public  Transaction (Transaction trx) {
-
-        this.transactionId = trx.getTransactionId();
-        this.cardType =  trx.getCardType();
-        this.bank = trx.getBank();
-        this.authCode = trx.getAuthCode();
-        this.last4Digits = trx.getLast4Digits();
-        this.transDate = trx.getTransDate();
-        this.cardNature = trx.getCardNature();
-        this.amount = trx.getAmount();
-        this.status = trx.getStatus();
+    public String getSource() {
+        return source;
     }
 
-    public String getTransactionId() {
-        return transactionId;
+    public void setSource(String source) {
+        this.source = source;
     }
 
-    public void setTransactionId(String transactionId) {
-        this.transactionId = transactionId;
+    public String getDescription() {
+        return description;
     }
 
-    public String getCardType() {
-        return cardType;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setCardType(String cardType) {
-        this.cardType = cardType;
+    public String getPaymentMethod() {
+        return paymentMethod;
     }
 
-    public String getBank() {
-        return bank;
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
     }
 
-    public void setBank(String bank) {
-        this.bank = bank;
+    public String getCurrency() {
+        return currency;
     }
 
-    public String getAuthCode() {
-        return authCode;
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
-    public void setAuthCode(String authCode) {
-        this.authCode = authCode;
+    public String getCvv() {
+        return cvv;
     }
 
-    public String getLast4Digits() {
-        return last4Digits;
-    }
-
-    public void setLast4Digits(String last4Digits) {
-        this.last4Digits = last4Digits;
+    public void setCvv(String cvv) {
+        this.cvv = cvv;
     }
 
     public LocalDateTime getTransDate() {
@@ -96,20 +88,20 @@ public class Transaction {
         this.transDate = transDate;
     }
 
-    public String getCardNature() {
-        return cardNature;
+    public String getSaveCard() {
+        return saveCard;
     }
 
-    public void setCardNature(String cardNature) {
-        this.cardNature = cardNature;
+    public void setSaveCard(String saveCard) {
+        this.saveCard = saveCard;
     }
 
-    public BigDecimal getAmount() {
-        return amount;
+    public Billing getBilling() {
+        return billing;
     }
 
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
+    public void setBilling(Billing billing) {
+        this.billing = billing;
     }
 
     public TransStatus getStatus() {

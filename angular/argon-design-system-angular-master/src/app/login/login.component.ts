@@ -8,7 +8,7 @@ import { DataState } from '../enum/data-state.enum';
 import { AppState } from '../interface/app-state';
 import { CustomResponse } from '../interface/custom-response';
 import { OrderService } from '../service/OrderServices';
-import { TrxService } from '../service/trxServices';
+//import { TrxService } from '../service/trxServices';
 import { Order } from '../interface/order';
 import { NgForm } from '@angular/forms';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
@@ -53,7 +53,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private modalService: NgbModal,
     private orderService: OrderService
-    , private  trxService: TrxService) { }
+    //, private  trxService: TrxService
+    ) { }
 
      
 
@@ -130,7 +131,7 @@ export class LoginComponent implements OnInit {
                   method: 'POST',
                   headers: {
                     Accept: 'application/json',
-                    Authorization: 'sk_netpay_qjtCStLvPGTSMcxfShCYDPrnKbeQqfanRkmIARsWrjhty',
+                //    Authorization: 'sk_netpay_qjtCStLvPGTSMcxfShCYDPrnKbeQqfanRkmIARsWrjhty',
                     'Content-Type': 'application/json'
                   },
                   body: JSON.stringify({
@@ -159,7 +160,8 @@ export class LoginComponent implements OnInit {
                   })
                 };
                 
-                fetch('https://gateway-154.netpaydev.com/gateway-ecommerce/v3/charges', options)
+                //fetch('https://gateway-154.netpaydev.com/gateway-ecommerce/v3/charges', options)
+                fetch('http://localhost:8084/api/v1/orders/PayOrders', options)
                   .then(response => response.json())
                   .then(response => responseTRX(response))
                   .catch(err => console.error(err));
