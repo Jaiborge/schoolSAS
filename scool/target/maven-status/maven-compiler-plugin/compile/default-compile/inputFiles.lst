@@ -1,0 +1,16 @@
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/Status.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/School.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/repo/SchoolRepository.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/Student.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/controller/OrdersController.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/ScoolApplication.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/TransStatus.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/service/StudentService.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/Transaction.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/Order.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/repo/OrderRepository.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/controller/SchoolController.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/controller/StudentController.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/model/Response.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/repo/StudentRepository.java
+/Users/Arturo/workspace/scool/src/main/java/com/flitx/scool/service/OrderService.java
